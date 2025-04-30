@@ -1,0 +1,11 @@
+<div class="coordinates-container" *ngIf="showCoordinates">
+  <!-- Left coordinates (ranks) -->
+  <div class="coordinates left">
+    <div class="coordinate" *ngFor="let rank of [8,7,6,5,4,3,2,1]">{{ rank }}</div>
+  </div>
+  
+  <!-- Bottom coordinates (files) -->
+  <div class="coordinates bottom">
+    <span class="coordinate" *ngFor="let file of ['a','b','c','d','e','f','g','h']">{{ file }}</span>
+  </div>
+</div> 

@@ -1,0 +1,46 @@
+<div class="controls-container">
+  <div class="control-group">
+    <h3>Game Settings</h3>
+    
+    <div class="setting">
+      <label>
+        <input type="checkbox" [(ngModel)]="showCoordinates" (change)="updateSettings()">
+        Show Coordinates
+      </label>
+    </div>
+
+    <div class="setting">
+      <label>Board Color:</label>
+      <select [(ngModel)]="boardColor" (change)="updateSettings()">
+        <option value="default">Default</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="brown">Brown</option>
+      </select>
+    </div>
+
+    <div class="setting">
+      <label>Difficulty:</label>
+      <select [(ngModel)]="difficulty" (change)="updateDifficulty()">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+    </div>
+
+    <div class="setting">
+      <label>Player Color:</label>
+      <select [(ngModel)]="playerColor" (change)="updatePlayerColor()">
+        <option value="white">White</option>
+        <option value="black">Black</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <h3>Game Actions</h3>
+    
+    <button (click)="undoMove()" [disabled]="!canUndo">Undo Move</button>
+    <button (click)="resetGame()">New Game</button>
+  </div>
+</div>

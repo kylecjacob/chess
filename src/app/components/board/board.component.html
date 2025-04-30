@@ -1,0 +1,25 @@
+<div class="board-container">
+  <div class="board" [class.show-coordinates]="showCoordinates">
+    <!-- Use the new coordinates component -->
+    <board-coordinates [showCoordinates]="showCoordinates"></board-coordinates>
+    
+    <!-- Main board -->
+    <div class="board-content">
+      <div class="board-row" *ngFor="let row of board; let rowIndex = index">
+        <div
+          class="square"
+          *ngFor="let piece of row; let colIndex = index"
+          [class.light]="isLightSquare(rowIndex, colIndex)"
+          [class.dark]="isDarkSquare(rowIndex, colIndex)"
+          [class.selected]="isSelected(rowIndex, colIndex)"
+          [class.valid-move]="isValidMove(rowIndex, colIndex)"
+          (click)="onSquareClick(rowIndex, colIndex)"
+        >
+          <div class="piece" *ngIf="piece" [class.white]="piece.color === 'white'" [class.black]="piece.color === 'black'">
+            {{ getPieceSymbol(piece) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

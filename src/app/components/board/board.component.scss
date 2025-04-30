@@ -1,0 +1,127 @@
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.board {
+  position: relative;
+  width: 584px; /* 560px board + 24px for coordinates */
+  height: 584px;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.board-content {
+  position: absolute;
+  top: 0;
+  left: 24px; /* Space for left coordinates */
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  width: 560px;
+  height: 560px;
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.square {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.light {
+  background-color: #f0d9b5;
+}
+
+.dark {
+  background-color: #b58863;
+}
+
+.selected {
+  background-color: #7b61ff;
+}
+
+.valid-move {
+  background-color: #90EE90;
+}
+
+.piece {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.white {
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.black {
+  color: #000;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+/* Left coordinates (ranks) */
+.coordinates.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.coordinates.left .coordinate {
+  height: 70px; /* 560px / 8 rows */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Bottom coordinates (files) */
+.coordinates.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 24px; /* Align with board content */
+  width: 560px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+}
+
+.coordinates.bottom .coordinate {
+  display: inline-block;
+  width: 70px; /* 560px / 8 columns */
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.show-coordinates .coordinates {
+  display: block;
+}
+
+.coordinates {
+  display: none;
+}
